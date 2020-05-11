@@ -1,0 +1,44 @@
+﻿@page
+@model MaerskLineCMS.Pages.Item.DetailsModel
+
+@{
+    ViewData["Title"] = "Item Details";
+    Layout = "~/Pages/Shared/_Layout_Agent.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ITEM</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Item ID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Item_ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITEM.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITEM.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Type)
+        </dd>
+        <dt class="col-sm-2">
+            Booking ID
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Booking_ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ITEM.Item_ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

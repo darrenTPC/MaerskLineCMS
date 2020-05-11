@@ -1,0 +1,41 @@
+﻿@page
+@model MaerskLineCMS.Pages.Item.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete Item";
+    Layout = "~/Pages/Shared/_Layout_Agent.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ITEM</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITEM.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITEM.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITEM.Booking_ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITEM.Booking_ID)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ITEM.Item_ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

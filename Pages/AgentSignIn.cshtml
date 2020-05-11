@@ -1,0 +1,15 @@
+﻿@page
+@model MaerskLineCMS.Pages.AgentSignInModel
+@{
+    ViewData["Title"] = "Agent Sign-In";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Agent Sign-In</h1>
+
+<p>Sign-In ID: <input id="Text1" type="text" /></p>
+<p>Password: <input id="Password1" type="password" /></p>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="location.href='/AgentHome'" type="button">Sign-In</button>
+

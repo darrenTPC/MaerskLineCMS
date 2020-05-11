@@ -1,0 +1,67 @@
+﻿@page
+@model MaerskLineCMS.Pages.Shipment.IndexModel
+
+@{
+    ViewData["Title"] = "Shipment Schedule";
+    Layout = "~/Pages/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Shipment Master Record</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Shipment ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SHIPMENT[0].Origin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SHIPMENT[0].Destination)
+            </th>
+            <th>
+                Departure Date
+            </th>
+            <th>
+                Arrival Date
+            </th>
+            <th>
+                Vessel ID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SHIPMENT) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shipment_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vessel_ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Shipment_ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Shipment_ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Shipment_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

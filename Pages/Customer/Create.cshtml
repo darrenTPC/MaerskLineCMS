@@ -1,0 +1,45 @@
+﻿@page
+@model MaerskLineCMS.Pages.Customer.CreateModel
+
+@{
+    ViewData["Title"] = "Create Customer Account";
+    Layout = "~/Pages/Shared/_Layout_Agent.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>CUSTOMER</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CUSTOMER.Name" class="control-label"></label>
+                <input asp-for="CUSTOMER.Name" class="form-control" required/>
+                <span asp-validation-for="CUSTOMER.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CUSTOMER.Email" class="control-label"></label>
+                <input type="email" asp-for="CUSTOMER.Email" class="form-control" required/>
+                <span asp-validation-for="CUSTOMER.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CUSTOMER.Contact" class="control-label"></label>
+                <input asp-for="CUSTOMER.Contact" class="form-control" required/>
+                <span asp-validation-for="CUSTOMER.Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

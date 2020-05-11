@@ -1,0 +1,56 @@
+﻿@page
+@model MaerskLineCMS.Pages.Vessel.EditModel
+
+@{
+    ViewData["Title"] = "Edit Vessel";
+    Layout = "~/Pages/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>VESSEL</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="VESSEL.Vessel_ID" />
+            <div class="form-group">
+                <label asp-for="VESSEL.Vessel_ID" class="control-label">Vessel ID</label>
+                <input asp-for="VESSEL.Vessel_ID" class="form-control" readonly/>
+                <span asp-validation-for="VESSEL.Vessel_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VESSEL.Vessel_Name" class="control-label">Vessel Name</label>
+                <input asp-for="VESSEL.Vessel_Name" class="form-control" />
+                <span asp-validation-for="VESSEL.Vessel_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VESSEL.Capacity_TEU" class="control-label">Capacity TEU</label>
+                <input type="number" asp-for="VESSEL.Capacity_TEU" class="form-control" />
+                <span asp-validation-for="VESSEL.Capacity_TEU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VESSEL.Available_TEU" class="control-label">Available TEU</label>
+                <input type="number" asp-for="VESSEL.Available_TEU" class="form-control" />
+                <span asp-validation-for="VESSEL.Available_TEU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VESSEL.Status" class="control-label"></label>
+                <input asp-for="VESSEL.Status" class="form-control" />
+                <span asp-validation-for="VESSEL.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

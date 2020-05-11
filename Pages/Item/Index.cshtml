@@ -1,0 +1,55 @@
+﻿@page
+@model MaerskLineCMS.Pages.Item.IndexModel
+
+@{
+    ViewData["Title"] = "Item";
+    Layout = "~/Pages/Shared/_Layout_Agent.cshtml";
+}
+
+<h1>Item Master Record</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Item ID
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ITEM[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ITEM[0].Type)
+            </th>
+            <th>
+                Booking ID
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ITEM) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Booking_ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Item_ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Item_ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Item_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

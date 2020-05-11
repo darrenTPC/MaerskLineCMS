@@ -1,0 +1,61 @@
+﻿@page
+@model MaerskLineCMS.Pages.Booking.EditModel
+
+@{
+    ViewData["Title"] = "Edit Shipment Booking";
+    Layout = "~/Pages/Shared/_Layout_Agent.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>BOOKING</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BOOKING.Booking_ID" />
+            <div class="form-group">
+                <label asp-for="BOOKING.Booking_ID" class="control-label">Booking ID</label>
+                <input asp-for="BOOKING.Booking_ID" class="form-control" readonly/>
+                <span asp-validation-for="BOOKING.Booking_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOOKING.TEU" class="control-label"></label>
+                <input asp-for="BOOKING.TEU" class="form-control" required/>
+                <span asp-validation-for="BOOKING.TEU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOOKING.Customer_ID" class="control-label">Customer ID</label>
+                <input asp-for="BOOKING.Customer_ID" class="form-control" required/>
+                <span asp-validation-for="BOOKING.Customer_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOOKING.Shipment_ID" class="control-label">Shipment ID</label>
+                <input asp-for="BOOKING.Shipment_ID" class="form-control" required/>
+                <span asp-validation-for="BOOKING.Shipment_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOOKING.Booked_By" class="control-label">Booked By</label>
+                <input asp-for="BOOKING.Booked_By" class="form-control" required/>
+                <span asp-validation-for="BOOKING.Booked_By" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BOOKING.Booked_Date" class="control-label">Booked Date</label>
+                <input asp-for="BOOKING.Booked_Date" class="form-control" required/>
+                <span asp-validation-for="BOOKING.Booked_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

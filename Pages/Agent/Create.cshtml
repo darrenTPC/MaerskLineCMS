@@ -1,0 +1,50 @@
+﻿@page
+@model MaerskLineCMS.Pages.Agent.CreateModel
+
+@{
+    ViewData["Title"] = "Create Agent Account";
+    Layout = "~/Pages/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>AGENT</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AGENT.Name" class="control-label"></label>
+                <input asp-for="AGENT.Name" class="form-control" required />
+                <span asp-validation-for="AGENT.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AGENT.Email" class="control-label"></label>
+                <input asp-for="AGENT.Email" class="form-control" required />
+                <span asp-validation-for="AGENT.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AGENT.SignIn_ID" class="control-label">Sign-In ID</label>
+                <input minlength="5" asp-for="AGENT.SignIn_ID" class="form-control" required />
+                <span asp-validation-for="AGENT.SignIn_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AGENT.Password" class="control-label"></label>
+                <input type="password" minlength="5" asp-for="AGENT.Password" class="form-control" required />
+                <span asp-validation-for="AGENT.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

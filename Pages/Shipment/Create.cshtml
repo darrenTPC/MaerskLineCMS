@@ -1,0 +1,55 @@
+﻿@page
+@model MaerskLineCMS.Pages.Shipment.CreateModel
+
+@{
+    ViewData["Title"] = "Create Shipment";
+    Layout = "~/Pages/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>SHIPMENT</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Origin" class="control-label"></label>
+                <input asp-for="SHIPMENT.Origin" class="form-control" required/>
+                <span asp-validation-for="SHIPMENT.Origin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Destination" class="control-label"></label>
+                <input asp-for="SHIPMENT.Destination" class="form-control" required/>
+                <span asp-validation-for="SHIPMENT.Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Departure_Date" class="control-label"></label>
+                <input type="datetime-local" asp-for="SHIPMENT.Departure_Date" class="form-control" required/>
+                <span asp-validation-for="SHIPMENT.Departure_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Arrival_Date" class="control-label"></label>
+                <input type="datetime-local" asp-for="SHIPMENT.Arrival_Date" class="form-control" required/>
+                <span asp-validation-for="SHIPMENT.Arrival_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Vessel_ID" class="control-label"></label>
+                <input asp-for="SHIPMENT.Vessel_ID" class="form-control" required/>
+                <span asp-validation-for="SHIPMENT.Vessel_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

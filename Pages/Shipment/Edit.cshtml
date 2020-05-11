@@ -1,0 +1,61 @@
+﻿@page
+@model MaerskLineCMS.Pages.Shipment.EditModel
+
+@{
+    ViewData["Title"] = "Edit Shipment";
+    Layout = "~/Pages/Shared/_Layout_Admin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>SHIPMENT</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SHIPMENT.Shipment_ID" />
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Shipment_ID" class="control-label">Shipment ID</label>
+                <input asp-for="SHIPMENT.Shipment_ID" class="form-control" readonly/>
+                <span asp-validation-for="SHIPMENT.Shipment_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Origin" class="control-label"></label>
+                <input asp-for="SHIPMENT.Origin" class="form-control" />
+                <span asp-validation-for="SHIPMENT.Origin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Destination" class="control-label"></label>
+                <input asp-for="SHIPMENT.Destination" class="form-control" />
+                <span asp-validation-for="SHIPMENT.Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Departure_Date" class="control-label">Departure Date</label>
+                <input type="datetime-local" asp-for="SHIPMENT.Departure_Date" class="form-control" />
+                <span asp-validation-for="SHIPMENT.Departure_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Arrival_Date" class="control-label">Arrival Date</label>
+                <input type="datetime-local" asp-for="SHIPMENT.Arrival_Date" class="form-control" />
+                <span asp-validation-for="SHIPMENT.Arrival_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SHIPMENT.Vessel_ID" class="control-label">Vessel ID</label>
+                <input asp-for="SHIPMENT.Vessel_ID" class="form-control" />
+                <span asp-validation-for="SHIPMENT.Vessel_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
